@@ -9,15 +9,15 @@ tags: [website]
 
 ###1.IT类
 
-* [cnBeta](www.cnbeta.com)：cnBeta.COM是互联网IT新闻业界的后起之秀,是国内领先的即时科技资讯站点和网友交流平台。
+* [cnBeta](http://www.cnbeta.com)：cnBeta.COM是互联网IT新闻业界的后起之秀,是国内领先的即时科技资讯站点和网友交流平台。
 
 * [segmentfault](http://segmentfault.com/)：专业面向开发者的中文技术问答社区。
 
 * [雷锋网](http://www.leiphone.com/)：专注于移动互联网创新和创业的科技博客,雷锋网会客观敏锐地记录移动互联网的每一天。
 
-* [Stack Overflow](www.stackoverflow.com)：Stack Overflow是一个与程序相关的IT技术问答网站。用户可以在网站免费提交问题，浏览问题，索引相关内容，在创建主页的时候使用简单的HTML。
+* [Stack Overflow](http://www.stackoverflow.com)：Stack Overflow是一个与程序相关的IT技术问答网站。用户可以在网站免费提交问题，浏览问题，索引相关内容，在创建主页的时候使用简单的HTML。
 
-* [GitHub](www.github.com)：GitHub可以托管各种git库，并提供一个web界面，已经成为了管理软件开发以及发现已有代码的首选方法。
+* [GitHub](http://www.github.com)：GitHub可以托管各种git库，并提供一个web界面，已经成为了管理软件开发以及发现已有代码的首选方法。
 
 * [BitBucket](https://bitbucket.org/)：BitBucket是一家源代码托管网站，采用Mercurial和Git作为分布式版本控制系统，同时提供商业计划和免费账户。
 
@@ -45,7 +45,7 @@ tags: [website]
 
 * [webpy cookbook](http://webpy.org/cookbook/index.zh-cn)：web.py的中文教程。
 
-* [啄木鸟Python社区](wiki.woodpecker.org.cn/moin/)：基于CoP模式组建/关注Python语言在中国的应用/推广/学习。
+* [啄木鸟Python社区](http://wiki.woodpecker.org.cn/moin/)：基于CoP模式组建/关注Python语言在中国的应用/推广/学习。
 
 * [Scrapy](http://doc.scrapy.org/en/master/)：著名的Python爬虫框架Scrapy，官方文档。
 
@@ -65,19 +65,19 @@ tags: [website]
 
 ###2.综合类
 
-* [知乎](www.zhihu.com)：知乎是一个真实的网络问答社区，社区氛围友好、理性、认真，连接各行各业的精英。他们分享着彼此的专业知识、经验和见解，为中文互联网源源不断地提供高质量的信息。
+* [知乎](http://www.zhihu.com)：知乎是一个真实的网络问答社区，社区氛围友好、理性、认真，连接各行各业的精英。他们分享着彼此的专业知识、经验和见解，为中文互联网源源不断地提供高质量的信息。
 
 * [v2ex](http://v2ex.com/)：富有参与感的5大区域，总有一个适合你。
 
-* [果壳网](www.guokr.com)：一个泛科技主题网站,提供负责任、有智趣、贴近生活的内容,你可以在这里阅读、分享、交流、提问。
+* [果壳网](http://www.guokr.com)：一个泛科技主题网站,提供负责任、有智趣、贴近生活的内容,你可以在这里阅读、分享、交流、提问。
 
-* [36氪](www.36kr.com)：中国最具影响力的互联网创业服务提供商，专注于为互联网创业者和从业者提供媒体资讯、投融资、人才招聘、数据库、大型展会等服务。
+* [36氪](http://www.36kr.com)：中国最具影响力的互联网创业服务提供商，专注于为互联网创业者和从业者提供媒体资讯、投融资、人才招聘、数据库、大型展会等服务。
 
-* [虎嗅网](www.huxiu.com)：一个有视角的、个性化商业资讯与交流平台,核心关注对象是包括公众公司与创业型企业在内的一系列明星公司。
+* [虎嗅网](http://www.huxiu.com)：一个有视角的、个性化商业资讯与交流平台,核心关注对象是包括公众公司与创业型企业在内的一系列明星公司。
 
-* [钛媒体](www.tmtpost.com)：把脉科技资本论，从资本市场看科技价值与趋势，中国最好的TMT（Technology，Media，Telecom）行业观点平台。
+* [钛媒体](http://www.tmtpost.com)：把脉科技资本论，从资本市场看科技价值与趋势，中国最好的TMT（Technology，Media，Telecom）行业观点平台。
 
 * [Engadget](http://www.engadget.com/)：Engadget is a web magazine with obsessive daily coverage of everything new in gadgets and consumer electronics.
 
-* [瘾科技](cn.engadget.com)：Engadget 中国版。
+* [瘾科技](http://cn.engadget.com)：Engadget 中国版。
 
