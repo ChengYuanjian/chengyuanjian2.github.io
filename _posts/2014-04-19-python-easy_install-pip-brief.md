@@ -7,7 +7,7 @@ category: Python
 tags: [pip,easy_install]
 ---
 
-`easy_insall`的作用和perl中的`cpan`, ruby中的`gem`类似，都提供了在线一键安装模块的傻瓜方便方式，而`pip`是`easy_install`的改进版, 提供更好的提示信息，删除package等功能。老版本的python中只有`easy_install`, 没有`pip`。
+`easy_install`的作用和perl中的`cpan`, ruby中的`gem`类似，都提供了在线一键安装模块的傻瓜方便方式，而`pip`是`easy_install`的改进版, 提供更好的提示信息，删除package等功能。老版本的python中只有`easy_install`, 没有`pip`。
 
 ###easy_install的用法：
 
