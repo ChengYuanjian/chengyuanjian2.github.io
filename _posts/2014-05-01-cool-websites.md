@@ -83,3 +83,9 @@ tags: [website]
 
 * [瘾科技](http://cn.engadget.com)：Engadget 中国版。
 
+* [极客公园](http://www.geekpark.net/):为你带来互联网热门趋势、热点产品的深度分析,发掘产品和趋势的价值。
+
+* [PingWest](http://www.pingwest.com/)：提供关于硅谷与中国最前沿科技创业资讯、趋势与洞见的在线媒体,致力于成为沟通中国与美国这两个全球最大的互联网/移动市场的互联网社区。
+
+* [Quora](https://www.quora.com/)：Quora is your best source for knowledge. Quora aims to be the easiest place to write new content and share content from the web.
+
