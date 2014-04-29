@@ -41,6 +41,8 @@ tags: [website]
 
 * [w3school](http://www.w3school.com.cn/)：全球最大的中文Web技术教程。英文版请去掉`.cn`。
 
+* [w3school.cc](http://www.w3cschool.cc/)：菜鸟教程。。。
+
 * [IBM 中文文档库](https://www.ibm.com/developerworks/cn/views/global/libraryview.jsp)：IBM官方，覆盖很广的中文文档库。
 
 * [webpy cookbook](http://webpy.org/cookbook/index.zh-cn)：web.py的中文教程。
