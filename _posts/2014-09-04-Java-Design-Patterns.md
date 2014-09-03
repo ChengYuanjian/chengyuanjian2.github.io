@@ -15,11 +15,11 @@ tags: [Java]
 
 在Java中，有23种设计模式，可分为三大类：
 
-* 1.创建型(5)**Creational Patterns**：抽象工厂`Abstract Factory`，工厂方法`Factory Method`，建造者`Builder`，原型`Prototype`，单例`Prototype`
+* 1.__创建型Creational Patterns(5)__：抽象工厂`Abstract Factory`，工厂方法`Factory Method`，建造者`Builder`，原型`Prototype`，单例`Prototype`
 
-* 2.结构型(7)**Structural Patterns**：适配器`Adapter`，桥接`Bridge`，复合`Composite`，装饰`Decorator`，外观`Facade`，享元`Flyweight`，代理`Proxy`
+* 2.__结构型Structural Patterns(7)__：适配器`Adapter`，桥接`Bridge`，复合`Composite`，装饰`Decorator`，外观`Facade`，享元`Flyweight`，代理`Proxy`
 
-* 3.行为型(11)**Behavorial Patterns**：责任链`Chain Of Responsibility`，命令`Command`，解释器`Interpreter`，迭代`Iterator`，中介`Mediator`，备忘`Memento`，观察者`Observer`，状态`State`，策略`Strategy`，模板方法`Template Method`，访问者`Visitor`
+* 3.__行为型Behavorial Patterns(11)__：责任链`Chain Of Responsibility`，命令`Command`，解释器`Interpreter`，迭代`Iterator`，中介`Mediator`，备忘`Memento`，观察者`Observer`，状态`State`，策略`Strategy`，模板方法`Template Method`，访问者`Visitor`
 
 此外，还有两类：并发型模式和线程池模式。用一个图片来整体描述一下：
 
