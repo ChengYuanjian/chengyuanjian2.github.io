@@ -27,9 +27,107 @@ tags: [Java]
 
 -------------------
 
-###1.抽象工厂|Abstract Factory
+###1.工厂方法|Factory Method
+
+工厂方法模式分为三种：
+
+* 普通工厂模式，就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建。如图：
+
+![普通工厂模式](http://dl.iteye.com/upload/attachment/0083/1180/421a1a3f-6777-3bca-85d7-00fc60c1ae8b.png)
+
+* 多个工厂方法模式，是对普通工厂方法模式的改进，在普通工厂方法模式中，如果传递的字符串出错，则不能正确创建对象，而多个工厂方法模式是提供多个工厂方法，分别创建对象。
+
+![多个工厂方法模式](http://dl.iteye.com/upload/attachment/0083/1181/84673ccf-ef89-3774-b5cf-6d2523cd03e5.jpg)
+
+* 静态工厂方法模式，将上面的多个工厂方法模式里的方法置为静态的，不需要创建实例，直接调用即可。
+
+{% highlight java %}
+public class SendFactory {
+	
+	public static Sender produceMail(){
+		return new MailSender();
+	}
+	
+	public static Sender produceSms(){
+		return new SmsSender();
+	}
+}
+{% endhighlight %}
+
+总体来说，工厂模式适合：凡是出现了大量的产品需要创建，并且具有共同的接口时，可以通过工厂方法模式进行创建。
+
+---------------------------
+
+###2.抽象工厂|Abstract Factory
+
+工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。
+
+![抽象工厂](http://img.my.csdn.net/uploads/201211/29/1354159363_7245.PNG)
+
+这个模式的好处就是，如果你现在想增加一个新功能只需做一个实现类，实现Sender接口，同时做一个工厂类，实现Provider接口，就OK了，无需去改动现成的代码，拓展性较好。
+
+---------------------------
+
+###3.单例模式|Singleton
+
+在Java应用中，单例对象能保证在一个JVM中，该对象只有一个实例存在。
+
+{% highlight java%}
+public class SingletonTest {
+
+	private static SingletonTest instance = null;
+
+	private SingletonTest() {
+	}
+
+	private static synchronized void syncInit() {
+		if (instance == null) {
+			instance = new SingletonTest();
+		}
+	}
+
+	public static SingletonTest getInstance() {
+		if (instance == null) {
+			syncInit();
+		}
+		return instance;
+	}
+}
+{% endhighlight %}
+
+---------------------------
+
+###4.建造者模式|Builder
+
+工厂类模式提供的是创建单个类的模式，而建造者模式则是将各种产品集中起来进行管理，用来创建复合对象，所谓复合对象就是指某个类具有不同的属性。
+
+{% highlight java %}
+public class Builder {
+	
+	private List<Sender> list = new ArrayList<Sender>();
+	
+	public void produceMailSender(int count){
+		for(int i=0; i<count; i++){
+			list.add(new MailSender());
+		}
+	}
+	
+	public void produceSmsSender(int count){
+		for(int i=0; i<count; i++){
+			list.add(new SmsSender());
+		}
+	}
+}
+{% endhighlight %}
+
+可以看出，建造者模式将很多功能集成到一个类里，这个类可以创造出比较复杂的东西。所以与工长模式的区别就是：工厂模式关注的是创建单个产品，而建造者模式则关注创建复合对象。
+
+---------------------------
+
+###5.原型模式|Prototype
+
+原型模式虽然是创建型的模式，但是与工厂模式没有关系。该模式的思想就是将一个对象作为原型，对其进行复制、克隆，产生一个和原对象类似的新对象。
 
 
-###2.工厂方法|Factory Method
 
 * [Java 23中设计模式示例代码](http://www.fluffycat.com/Java-Design-Patterns/)
