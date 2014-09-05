@@ -17,7 +17,7 @@ tags: [Java]
 
 在Java中，有23种设计模式，可分为三大类：
 
-* 1.__创建型Creational Patterns(5)__：抽象工厂`Abstract Factory`，工厂方法`Factory Method`，建造者`Builder`，原型`Prototype`，单例`Prototype`
+* 1.__创建型Creational Patterns(5)__：抽象工厂`Abstract Factory`，工厂方法`Factory Method`，建造者`Builder`，原型`Prototype`，单例`Singleton`
 
 * 2.__结构型Structural Patterns(7)__：适配器`Adapter`，桥接`Bridge`，复合`Composite`，装饰`Decorator`，外观`Facade`，享元`Flyweight`，代理`Proxy`
 
