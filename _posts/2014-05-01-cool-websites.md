@@ -63,7 +63,9 @@ tags: [website]
 
 * [BlazeDS](http://livedocs.adobe.com/blazeds/1/blazeds_devguide/)：基于服务器的Java远程调用（remoting）和Web消息传递（messaging）技术，使得后台的Java应用程序和运行在浏览器上的Flex应用框架。
 
+* [Java开源大全](http://www.open-open.com/)：收录最全、最新的Java开源软件，发布最新IT资讯，提供开发文档、技术经验在线分享平台。
 
+-----------------------------------------
 
 ###2.综合类
 
@@ -90,4 +92,7 @@ tags: [website]
 * [PingWest](http://www.pingwest.com/)：提供关于硅谷与中国最前沿科技创业资讯、趋势与洞见的在线媒体,致力于成为沟通中国与美国这两个全球最大的互联网/移动市场的互联网社区。
 
 * [Quora](https://www.quora.com/)：Quora is your best source for knowledge. Quora aims to be the easiest place to write new content and share content from the web.
+
+* [外刊it评论](http://www.vaikan.com/)：程序员工作、生活、爱情、事业等
+
 
