@@ -39,8 +39,8 @@ LoadModule jk\_module modules/mod\_jk.so #JK插件的位置
 JkWorkersFile conf/workers.properties #tomcat相关配置文件，见下文
 JkLogFile logs/mod\_jk.log #日志文件
 JkLogLevel debug  #tomcat运行模式
-JkMount /*.jsp loadbalancer   #收到.jsp结尾的文件交给负载均衡器处理
-JkMount /myapp/* loadbalancer  #收到myapp/路径交给负载均衡器处理
+JkMount /\*.jsp loadbalancer   #收到.jsp结尾的文件交给负载均衡器处理
+JkMount /myapp/\* loadbalancer  #收到myapp/路径交给负载均衡器处理
 </code></pre>
 
 * （2）在<apache_home>/conf目录下创建：workers.properties文件：
