@@ -36,7 +36,7 @@ iBatis是一个基于Java的持久层框架，2010年这个项目由apache softw
 	</transactionManager>
 {% endhighlight %}
 
-（2）通过以上方式配置好不同的数据源，并保存为<code>SqlMapConfig_DS1.xml，SqlMapConfig_DS2.xml，SqlMapConfig_DS3.xml</code>。
+（2）通过以上方式配置好不同的数据源，并保存为<pre><code>SqlMapConfig_DS1.xml，SqlMapConfig_DS2.xml，SqlMapConfig_DS3.xml</code></pre>。
 
 （3）读取不同的配置文件构造不同的SqlMapClientImpl。
 {% highlight java %}
