@@ -36,7 +36,7 @@ iBatis是一个基于Java的持久层框架，2010年这个项目由apache softw
 	</transactionManager>
 {% endhighlight %}
 
-（2）通过以上方式配置好不同的数据源，并保存为SqlMapConfig_DS1.xml，SqlMapConfig_DS2.xml，SqlMapConfig_DS3.xml。
+（2）通过以上方式配置好不同的数据源，并保存为<code>SqlMapConfig_DS1.xml，SqlMapConfig_DS2.xml，SqlMapConfig_DS3.xml</code>。
 
 （3）读取不同的配置文件构造不同的SqlMapClientImpl。
 {% highlight java %}
@@ -64,6 +64,7 @@ sqlMapClient.setUserConnection(connection);
 {% endhighlight %}
 
 这种用法Connection的事务管理、资源分配需要我们自己写额外的代码去维护。
+
 ----------------------------
 
 ####2.iBatis通配符配置
@@ -155,8 +156,6 @@ parser.addNodelet("/sqlMapConfig/sqlMap", new Nodelet() {
  	    	      addSqlMapConfigFiles(fileList.get(i), url);   
  	    	   }   
  	     }
- 	    
- 	    
  	    }else{   
   	     addSqlMapConfigFiles(resource, url);
   	    }  
@@ -221,3 +220,5 @@ protected static List<String> getAllResource(String resource) {
 		}
 	}
 {% endhighlight %}
+
+由此可以看出，spring对iBatis的良好支持，已经为我们做了大量的封装工作，但也带来额外的bean配置，看个人取舍了。
