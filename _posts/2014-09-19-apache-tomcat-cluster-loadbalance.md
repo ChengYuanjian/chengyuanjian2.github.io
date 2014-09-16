@@ -70,7 +70,7 @@ __说明：__
 3.sticky\_session\_force：假设sticky\_session设为true，用户会话具有了粘性，当当前Tomcat服务器停止服务后，如果sticky\_session\_force为true也就是强制会话与当前Tomcat关联，那么会报500错误，如果设为false则会转到另外的Tomcat服务器。
 
 * （3）修改两个Tomcat的conf/service.xml文件：
-* 
+
 确保SHUTDOWN端口、HTTP端口、AJP端口不冲突（这里AJP端口与上述workers.properties中配置保持一致）；
 
 在Engine节点启用集群配置，去掉Cluster节点前的注释（默认是注释掉的），并添加jvmRoute属性（与上述workers.properties中配置保持一致）；
