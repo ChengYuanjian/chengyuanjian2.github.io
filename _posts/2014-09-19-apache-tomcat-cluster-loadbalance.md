@@ -34,14 +34,14 @@ _本文资料借鉴于网络_
 ####3.配置
 
 * （1）修改<apache_home>/conf/httpd.conf文件，在文件后面加上：
-{% highlight properties %}
+<pre><code>
 LoadModule jk_module modules/mod_jk.so #JK插件的位置 
 JkWorkersFile conf/workers.properties #tomcat相关配置文件，见下文
 JkLogFile logs/mod_jk.log #日志文件
 JkLogLevel debug  #tomcat运行模式
 JkMount /*.jsp loadbalancer   #收到.jsp结尾的文件交给负载均衡器处理
 JkMount /myapp/* loadbalancer  #收到myapp/路径交给负载均衡器处理
-{% endhighlight %}
+</code></pre>
 
 * （2）在<apache_home>/conf目录下创建：workers.properties文件：
 {% highlight properties %}
@@ -52,7 +52,7 @@ worker.worker1.port=8009            #Tomcat端口
 worker.worker1.type=ajp13            #协议
 worker.worker1.lbfactor=100            #负载平衡因数
  
-worker.worker2.host=localhost        #Tomcat worker2服务器
+worker.worker2.host=localhost        #Tomcat worker2服务器<pre><code>
 worker.worker2.port=8010            #如果是一台机器上端口不能一样，常识
 worker.worker2.type=ajp13            #协议
 worker.worker2.lbfactor=100            #设为一样代表两台机器的负载相同
@@ -66,11 +66,13 @@ worker.loadbalancer.sticky_session_force=false
 __说明：__
 
 1.JK插件的负载均衡器根据配置的lbfactor（负载平衡因数），负责为集群系统中的Tomcat服务器分配工作负荷，以实现负载平衡，值越大，负载就越高。每个Tomcat服务器间用集群管理器（SimpleTcpCluster）进行通信，以实现HTTP回话的复制，比如Session。
-2.worker.loadbalancer.sticky_seesion如果设为true则说明会话具有“粘性”，也就是如果一个用户在一个Tomcat中建立了会话后则此后这个用户的所有操做都由这个Tomcat服务器承担。集群系统不会进行会话复制。如果设为false则下面的 sticky_session_force无意义。
-3.sticky_session_force：假设sticky_session设为true，用户会话具有了粘性，当当前Tomcat服务器停止服务后，如果sticky_session_force为true也就是强制会话与当前Tomcat关联，那么会报500错误，如果设为false则会转到另外的Tomcat服务器。
+2.worker.loadbalancer.sticky\_seesion如果设为true则说明会话具有“粘性”，也就是如果一个用户在一个Tomcat中建立了会话后则此后这个用户的所有操做都由这个Tomcat服务器承担。集群系统不会进行会话复制。如果设为false则下面的 sticky\_session\_force无意义。
+3.sticky\_session\_force：假设sticky\_session设为true，用户会话具有了粘性，当当前Tomcat服务器停止服务后，如果sticky\_session\_force为true也就是强制会话与当前Tomcat关联，那么会报500错误，如果设为false则会转到另外的Tomcat服务器。
 
 * （3）修改两个Tomcat的conf/service.xml文件：
+* 
 确保SHUTDOWN端口、HTTP端口、AJP端口不冲突（这里AJP端口与上述workers.properties中配置保持一致）；
+
 在Engine节点启用集群配置，去掉Cluster节点前的注释（默认是注释掉的），并添加jvmRoute属性（与上述workers.properties中配置保持一致）；
 {% highlight xml %}
 <Engine name="Catalina" defaultHost="localhost" jvmRoute="worker1">
