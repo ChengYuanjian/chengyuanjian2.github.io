@@ -12,11 +12,13 @@ Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（I
 
 _本文资料借鉴于网络_
 
-<!-- more -->
+
 
 ####反向代理
 
 * 反向代理（Reverse Proxy）方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。  
+
+<!-- more -->
 
 上次整理了[Apache和Tomcat实现集群和负载均衡](http://chengyuanjian.github.io/java/2014-09/apache-tomcat-cluster-loadbalance.html)的配置，本文简述一下Nginx和Tomcat实现集群和负载均衡。
 
@@ -35,15 +37,15 @@ F5是操作于OSI网络模型的传输层，Nginx、Apache是基于Http反向代
 * 如果想实现SESSION共享，则需要利用memcached来保存session，以下是依赖包：
 
 <pre><code>
-* http://memcached-session-manager.googlecode.com/files/memcached-session-manager-1.3.0.jar
+http://memcached-session-manager.googlecode.com/files/memcached-session-manager-1.3.0.jar
  
-* http://memcached-session-manager.googlecode.com/files/msm-javolution-serializer-jodatime-1.3.0.jar
+http://memcached-session-manager.googlecode.com/files/msm-javolution-serializer-jodatime-1.3.0.jar
  
-* http://memcached-session-manager.googlecode.com/files/msm-javolution-serializer-cglib-1.3.0.jar
+http://memcached-session-manager.googlecode.com/files/msm-javolution-serializer-cglib-1.3.0.jar
  
-* http://spymemcached.googlecode.com/files/memcached-2.4.2.jar
+http://spymemcached.googlecode.com/files/memcached-2.4.2.jar
 
-* http://memcached-session-manager.googlecode.com/files/javolution-5.4.3.1.jar
+http://memcached-session-manager.googlecode.com/files/javolution-5.4.3.1.jar
 </code></pre>
 
 __如果tomcat过多不建议session同步，server间相互同步session很耗资源，高并发环境容易引起Session风暴。而且大多数情况下，同一个用户没有必要访问不同的server。__
@@ -173,7 +175,7 @@ http {
 
 * （3）动静分离，即Nginx处理图片、html等静态的文件，Tomcat处理jsp动态文件。最主要用的还是location这个元素：
 
-{% highlight py %}
+{% highlight sh %}
 location ~ \.jsp$ {
         proxy_pass http://localhost:8080;
 }
