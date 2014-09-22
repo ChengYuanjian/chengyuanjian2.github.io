@@ -10,7 +10,7 @@
 }body {
 	color:rgba(51,51,51,0.9);
 	font-family:"Helvetica Neue", 'Ubuntu', Tahoma, Arial, Helvetica, sans-serif;
-	background: url(./images/bg.png) repeat-x 
+	background-image: url(assets/themes/havee/images/bg.png) repeat
 }
 h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6,b,strong {
 	font-weight:500;
