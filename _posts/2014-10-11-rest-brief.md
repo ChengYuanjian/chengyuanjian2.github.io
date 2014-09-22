@@ -2,9 +2,9 @@
 layout: post
 title:  REST简述
 description: 
-keywords: website,Google
-category: Google
-tags: [website,Google]
+keywords: REST
+category: Other
+tags: [REST]
 ---
 
 大概2010年的时候，听说了REST这个单词，但一直没去关注和了解。直到今年年初换工作的时候，有道笔试题（顺便吐槽一下社招还有笔试的奇葩公司）正好是关于Spring是如何实现REST的，我顿时愕然，不知该如何回答合适。虽然这道题并没有影响最终的笔试结果，但一直让我耿耿于怀至今。新的工作并没有任何使用REST的场景，也没有往REST发展的迹象，我很难理解当初为什么会出现这道题目。利用工余时间Google了相关资料，也研究了一下REST相关代码实现，对这个知识点做一个简单的梳理。
