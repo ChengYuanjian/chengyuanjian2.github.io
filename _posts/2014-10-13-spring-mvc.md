@@ -75,7 +75,6 @@ DispatcherServlet会默认加载WEB-INF/[DispatcherServlet的Servlet名字]-serv
 #####url-pattern配置小结
 
 <pre><code>
-
 配置servlet的<url-pattern>时，容器会首先查找完全匹配，再查找目录匹配，最后查找扩展名匹配。 如果一个请求匹配多个“目录匹配”，容器会选择最长的匹配。
 
 （1）“*.action”这是比较传统的方式，简单实用；
@@ -85,7 +84,7 @@ DispatcherServlet会默认加载WEB-INF/[DispatcherServlet的Servlet名字]-serv
 
 使用Spring构造restful url，通常会配置为`/`，但这种方式也会把js、jpg、css等静态资源拦截住，导致页面无法加载这些资源。这里有三种解决方案：
 
-* 1.使用<mvc:default-servlet-handler/> 
+* 1.使用mvc:default-servlet-handler 
 
 它会把url注册到SimpleUrlHandlerMapping的urlMap中,把对静态资源的访问由HandlerMapping转到`org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler`处理。DefaultServletHttpRequestHandler使用就是各个Servlet容器自己的默认Servlet。
 
@@ -113,16 +112,11 @@ DispatcherServlet会默认加载WEB-INF/[DispatcherServlet的Servlet名字]-serv
 #####常见容器默认Servlet名字：
 
 <pre><code>
-
-* Tomcat, Jetty, JBoss, GlassFish：default
-
-* Google App Engine：_ah_default
-
-* Resin为：resin-file
-
-* WebLogic：FileServlet
-
-* WebSphere：SimpleFileServlet
+Tomcat, Jetty, JBoss, GlassFish：default
+Google App Engine：_ah_default
+Resin为：resin-file
+WebLogic：FileServlet
+WebSphere：SimpleFileServlet
 </code></pre>
 
 如果配置listener来加载配置文件，Spring会创建一个全局的WebApplicationContext上下文，称为根上下文（root application context）：
@@ -286,7 +280,7 @@ public class MyController {
 </bean>
 {% endhighlight %}
 
-Spring会自动搜索message.properties、message_zh_CN.properties等国际化配置文件。
+Spring会自动搜索message.properties、message\_zh\_CN.properties等国际化配置文件。
 在页面中，引入Spring标签库：
 {% highlight jsp %}
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
