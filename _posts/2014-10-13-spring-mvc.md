@@ -21,7 +21,7 @@ tags: [Spring,MVC]
 
 ---------------------
 
-###Spring MVC
+####Spring MVC是什么
 
 首先要理解Spring MVC，它是基于Java的实现了Web MVC设计模式的请求驱动类型的轻量级Web框架，类似Struts。
 
@@ -248,7 +248,7 @@ public class MyController {
 
 ####六.其他
 
-#####中文乱码解决方案
+#####1.中文乱码解决方案
 
 {% highlight xml %}
 <filter>
@@ -265,13 +265,13 @@ public class MyController {
 </filter-mapping>
 {% endhighlight %}
 
-#####自动检测组件
+#####2.自动检测组件
 
 {% highlight xml %}
 <context:component-scan base-package="com.cyj.controller"/>
 {% endhighlight %}
 
-#####国际化
+#####3.国际化
 
 {% highlight xml %}
 <bean id="messageSource"
