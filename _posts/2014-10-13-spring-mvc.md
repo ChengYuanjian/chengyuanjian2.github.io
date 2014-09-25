@@ -297,3 +297,9 @@ Spring会自动搜索message.properties、message\_zh\_CN.properties等国际化
     </list>
   </property>
 {% endhighlight %}
+
+------------------------
+
+####参考文档
+
+[Spring官方在线文档库](http://docs.spring.io/spring/docs/)
