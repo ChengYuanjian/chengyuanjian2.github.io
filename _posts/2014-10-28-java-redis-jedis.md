@@ -73,14 +73,14 @@ JedisPool pool = new JedisPool(config, "192.168.2.191", 8888);//非切片池
 List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>(); 
 shards.add(new JedisShardInfo("127.0.0.1", 6379, "master")); 
 ShardedJedisPool shardedJedisPool = new ShardedJedisPool(config, shards)//切片池
-{% endhightlight %}
+{% endhighlight %}
 
 #####3.非切片连接Jedis和切片连接ShardedJedis 
 
 {% highlight java %}
 Jedis jedis = pool.getResource();//从连接池获取Jedis实例
 ShardedJedis shardedjedis = shardedJedisPool.getResource();
-{% endhightlight %}
+{% endhighlight %}
 
 #####4.常用操作
 
@@ -105,7 +105,7 @@ ShardedJedis shardedjedis = shardedJedisPool.getResource();
 {% highlight java %}
 //释放redis对象
 pool.returnBrokenResource(jedis);
-{% endhightlight %}
+{% endhighlight %}
 
 ####参考资料
 
