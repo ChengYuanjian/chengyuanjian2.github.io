@@ -19,7 +19,7 @@ Eclipse是写Java首选IDE，而ANT做为Java的一种build工具，二者可以
 
 ####解决方案
 
-既然已经知道二者编译方式的不同，那就知道解决方案了。能否让ANT也去通过JDTCompilerAdapter进行编译？答案是肯定的。
+既然已经知道二者编译方式的不同，那就知道解决方案了。能否让ANT也通过JDTCompilerAdapter进行编译？答案是肯定的。
 
 * 1.增加`build.compiler`属性
 
@@ -29,12 +29,14 @@ Eclipse是写Java首选IDE，而ANT做为Java的一种build工具，二者可以
 
 * 2.导入相关jar包
 
-把eclipse/plugins目录下的`org.eclipse.jdt.*.jar`复制到ANT安装目录下的lib文件夹中即可。（如果依旧报"org.eclipse.jdt.core.JDTComilerAdapter" not found，则把org.eclipse.jdt.core_*.jar中的jdtCompilerAdapter.jar提取出来放到lib目录下）
+把eclipse/plugins目录下的`org.eclipse.jdt.*.jar`复制到ANT安装目录下的lib文件夹中即可。
+
+__如果依旧报"org.eclipse.jdt.core.JDTComilerAdapter not found"，则把org.eclipse.jdt.core_*.jar中的jdtCompilerAdapter.jar提取出来放到lib目录下__
 
 * 3.修改`javac`节点
 
 {% highlight xml %}
-<javac srcdir="${testsrc.dir}" destdir="${classes.dir}" debug="true" deprecation="true" source="1.6" target="1.6">
+<javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" deprecation="true" source="1.6" target="1.6">
     <classpath refid="jar.classpath">
     </classpath>
 </javac>
@@ -43,8 +45,8 @@ Eclipse是写Java首选IDE，而ANT做为Java的一种build工具，二者可以
 
 * 4.配置ANT的runtime
 
-如果是使用命令行的方式运行ANT，则上述2步即可。如果需要在Eclipse中运行ANT，则还需要更改其runtime配置。
-Window-Preferences-Ant-Runtime-Ant Home Entries-Add External Jars，把步骤2中的jar包都导入进来即可。
+如果是使用命令行的方式运行ANT，则上述3步即可。如果需要在Eclipse中运行ANT，则还需要更改其runtime配置。
+`Window-Preferences-Ant-Runtime-Ant Home Entries-Add External Jars`，把步骤2中的jar包都导入进来即可。
 
 ---------------------
 
