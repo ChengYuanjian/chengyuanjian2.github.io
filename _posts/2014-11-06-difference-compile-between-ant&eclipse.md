@@ -25,7 +25,7 @@ Eclipse是写Java首选IDE，而ANT做为Java的一种build工具，二者可以
 
 {% highlight xml %}
 <property name="build.compiler" value="org.eclipse.jdt.core.JDTComilerAdapter"/>
-{& endhighlight &}
+{% endhighlight %}
 
 * 2.导入相关jar包
 
