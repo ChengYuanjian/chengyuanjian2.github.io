@@ -33,7 +33,7 @@ Eclipse是写Java首选IDE，而ANT做为Java的一种build工具，二者可以
 
 * 3.修改`javac`节点
 
-{% highlight java %}
+{% highlight xml %}
 <javac srcdir="${testsrc.dir}" destdir="${classes.dir}" debug="true" deprecation="true" source="1.6" target="1.6">
     <classpath refid="jar.classpath">
     </classpath>
