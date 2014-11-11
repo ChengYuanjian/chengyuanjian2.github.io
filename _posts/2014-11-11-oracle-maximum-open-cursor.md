@@ -1,6 +1,6 @@
 ---
-layout:         post
-title:         "ORA-01000: maximum open cursors exceeded"怎么解决
+layout:   post
+title:    ORA-01000: maximum open cursors exceeded怎么解决
 description: 
 keywords: Oracle,cursor,01000
 category: Oracle
