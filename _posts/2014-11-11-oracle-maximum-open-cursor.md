@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    ORA-01000: maximum open cursors exceeded怎么解决
+title:    关于“ORA-01000：maximum open cursors exceeded”的解决方案
 description: 
 keywords: Oracle,cursor,01000
 category: Oracle
