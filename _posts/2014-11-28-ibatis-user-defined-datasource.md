@@ -21,10 +21,10 @@ sqlMapClient.setUserConnection(connection);
 {% highlight xml %}
   <transactionManager type="JDBC">
 		<dataSource type="SIMPLE">
-			<property name="JDBC.Driver" value="${db.driver}" />
-			<property name="JDBC.ConnectionURL" value="${db.url}" />
-			<property name="JDBC.Username" value="${db.usr}" />
-			<property name="JDBC.Password" value="${db.pwd}" />
+			<property name="JDBC.Driver" value="\${db.driver}" />
+			<property name="JDBC.ConnectionURL" value="\${db.url}" />
+			<property name="JDBC.Username" value="\${db.usr}" />
+			<property name="JDBC.Password" value="\${db.pwd}" />
 		</dataSource>
 	</transactionManager>
 {% endhighlight %}
