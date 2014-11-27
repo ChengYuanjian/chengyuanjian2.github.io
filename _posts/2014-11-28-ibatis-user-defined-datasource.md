@@ -13,7 +13,7 @@ tags: [Java,iBatis,MyBatis]
 前段时间写了一排你[关于iBatis多数据源、通配符配置](http://chengyuanjian.github.io/java/2014-09/ibatis-multiply-datasource.html)的文章，正文有一段代码
 {% highlight java %}
 sqlMapClient.setUserConnection(connection);
-{% endhightlight %}
+{% endhighlight %}
 可以自定义Connection传给iBatis使用，可以解决这个问题，但在实际使用的过程中，依旧比较麻烦，因为你还得时刻操心Connection的open/close。对此，我一直耿耿于怀，经过一番实践，终于找到另外一种解决方案。
 
 ####1.配置iBatis数据源
@@ -21,10 +21,10 @@ sqlMapClient.setUserConnection(connection);
 {% highlight xml %}
   <transactionManager type="JDBC">
 		<dataSource type="SIMPLE">
-			<property name="JDBC.Driver" value="\${db.driver}" />
-			<property name="JDBC.ConnectionURL" value="\${db.url}" />
-			<property name="JDBC.Username" value="\${db.usr}" />
-			<property name="JDBC.Password" value="\${db.pwd}" />
+			<property name="JDBC.Driver" value="${db.driver}" />
+			<property name="JDBC.ConnectionURL" value="${db.url}" />
+			<property name="JDBC.Username" value="${db.usr}" />
+			<property name="JDBC.Password" value="${db.pwd}" />
 		</dataSource>
 	</transactionManager>
 {% endhighlight %}
