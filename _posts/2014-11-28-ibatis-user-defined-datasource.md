@@ -30,6 +30,7 @@ sqlMapClient.setUserConnection(connection);
 {% endhighlight %}
 
 ####2.构造数据Properties
+
 {% highlight java %}
 Properties properties = new Properties();
 properties.setProperty("db.driver","oracle.jdbc.driver.OracleDriver");
@@ -39,6 +40,7 @@ properties.setProperty("db.pwd","password");//这里可以解密
 {% endhighlight %}
 
 ####3.构造SqlMapClient
+
 {% highlight java %}
   Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml");
   SqlMapClientBuilder.buildSqlMapClient(reader, properties);    
