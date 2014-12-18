@@ -52,11 +52,21 @@ __如果tomcat过多不建议session同步，server间相互同步session很耗�
 
 ####2.安装
 
-同Apache一样简单，直接解压即可。如果需要memcached，将上述5个依赖包放到$TOMCAT_HOME/lib目录下。
+同Apache一样简单，Windows下载后直接解压即可。如果需要memcached，将上述5个依赖包放到$TOMCAT_HOME/lib目录下。
+
+Linux下载后执行以下命令：
+{% highlight sh %}
+tar -xzvf nginx-1.x.x.tar.gz 
+cd nginx-1.x.x
+./configure 
+make 
+make install　
+{% endhighlight %}
+如果是Ubuntu，常用在线安装的方式：`apt-get install nginx`。
 
 ####3.配置
 
-* （1）修改<nginx_home>/nginx.conf文件：
+* （1）修改<nginx_home>/nginx.conf文件(Linux下修改sites-available/default文件，方式基本雷同)：
 
 {% highlight py %}
 #Nginx所用用户和组，window下不指定
@@ -106,12 +116,12 @@ http {
 
     #keepalive_timeout  75 20;
 
-    upstream localhost {
+    upstream tomcat {
       #根据ip计算将请求分配各那个后端tomcat，许多人误认为可以解决session问题，其实并不能。
       #同一机器在多网情况下，路由切换，ip可能不同
-      #ip_hash; 
-      server localhost:18081  weight=1; #weight为请求权重，值越大，被请求的机率越高。
-      server localhost:18080  weight=1;
+      #ip_hash; 通知nginx使用ip hash负载均衡算法。如果没加这条指令，nginx会使用默认的round robin负载均衡模块。
+      server localhost:9080  weight=1; #weight为请求权重，值越大，被请求的机率越高。
+      server localhost:8080  weight=1;
      }
 
     server {
@@ -119,13 +129,13 @@ http {
       server_name  localhost; 
       charset      utf-8;  
 
-      location / {
+      location / { 
           root   html;  
           index  index.html index.htm; 
-      		proxy_connect_timeout   3;
-      		proxy_send_timeout      30;
-      		proxy_read_timeout      30;
-          proxy_pass http://localhost;
+      	  proxy_connect_timeout   3;
+      	  proxy_send_timeout      30;
+      	  proxy_read_timeout      30;
+          proxy_pass http://tomcat;     #代理上文配置的upstream tomcat
       }
       
       location ~ ^/(WEB-INF)/ {   
@@ -136,6 +146,7 @@ http {
       location = /50x.html {  
         root   html;  
       } 
+      
             
    }
 }
@@ -147,7 +158,7 @@ http {
 
 *	server_name：表示监听到之后需要转到哪里去，这时我们直接转到本地。
 
-*	location：表示匹配的路径，这时配置了/表示所有请求都被匹配到这里。
+*	location：表示匹配的路径，这时配置了/表示所有请求都被匹配到这里。可以配置任意多个，采用最优匹配的原则进行代理分发；路径支持正则，一般以~开头$结尾（前面加*不区分大小写）。
 
 *	root：里面配置了root这时表示当匹配这个请求的路径时，将会在这个文件夹内寻找相应的文件，这里对我们之后的静态文件伺服很有用。
 
@@ -181,7 +192,7 @@ location ~ \.jsp$ {
 }
 		
 location ~ \.(html|js|css|png|gif)$ {
-	root D:/apache-tomcat-7.0.8/webapps/ROOT;
+	root /opt/tomcat/webapps/ROOT;   
 	expires 30d; 
 }
 {% endhighlight %}
