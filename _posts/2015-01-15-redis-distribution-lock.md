@@ -38,20 +38,19 @@ long lock = jedis.setnx(lockstamp, timestamp + "");
 
 {% highlight java %}
 //如果自己获取锁，或者原有的master已经超时，则标记自己为master，同时改变锁的超时时间
-if (lock == 1
-					|| (System.currentTimeMillis() > Long.parseLong(jedis
+if (lock == 1 || (System.currentTimeMillis() > Long.parseLong(jedis
 							.get(lockstamp)) && System.currentTimeMillis() > Long
 							.parseLong(jedis.getSet(lockstamp, timestamp + "")))) {
-				logger.info("I'm master, I will do some job.");
-				break;
-			} else {//否则，标记自己为slave，并等待
-				try {
-					logger.info("I'm slave, I need to stand by.");
-					Thread.sleep(10);
-				} catch (InterruptedException e) {
-					logger.error("Failed to release lock", e);
-				}
-			}
+	logger.info("I'm master, I will do some job.");
+	break;
+} else {//否则，标记自己为slave，并等待
+	try {
+		logger.info("I'm slave, I need to stand by.");
+		Thread.sleep(10);
+		} catch (InterruptedException e) {
+		logger.error("Failed to release lock", e);
+		}
+	}
 {% endhighlight %}
 
 * 4.释放锁
