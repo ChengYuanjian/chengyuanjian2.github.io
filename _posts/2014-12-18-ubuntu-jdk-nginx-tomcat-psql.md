@@ -7,7 +7,7 @@ category: Unix
 tags: [Unix,Linux,Ubuntu]
 ---
 
-本文基于Ubuntu12.04，阐述基础环境搭建过程：JDK+Nginx+Tomcat+Redis+PostgreSQL。
+本文基于Ubuntu12.04，阐述基础环境搭建过程：JDK+Nginx+Tomcat+Redis+PostgreSQL/MySQL。
 
 ####JDK安装
 
@@ -25,6 +25,8 @@ sudo apt-get update
 sudo apt-get install oracle-java7-installer
 sudo apt-get install oracle-java7-set-default
 {% endhighlight %}
+
+<!-- more -->
 
 * 2.离线安装
 
@@ -123,5 +125,13 @@ apt-get install postgresql
 
 参见：http://www.postgresql.org/download/linux/ubuntu/
 
+####MySQL安装
+
+* 1.在线安装
+
+{% highlight sh %}
+apt-get install mysql-server
+{% endhighlight %}
+配置文件路径：/etc/mysql/my.cnf
 
 
