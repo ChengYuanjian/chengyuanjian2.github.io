@@ -82,7 +82,7 @@ DispatcherServlet会默认加载WEB-INF/[DispatcherServlet的Servlet名字]-serv
 （3）“/*”请求虽然会顺利发送到Controller，但跳转到jsp页面时会被拦截，这种方式不可取。
 </code></pre>
 
-使用Spring构造restful url，通常会配置为`/`，但这种方式也会把js、jpg、css等静态资源拦截住，导致页面无法加载这些资源。这里有三种解决方案：
+使用Spring构造restful url，通常会配置为`/`，但这种方式也会把js、jpg、css等静态资源拦截住，导致页面无法加载这些资源。这里有三种解决方案(推荐第二种)：
 
 * 1.使用mvc:default-servlet-handler 
 
@@ -303,3 +303,4 @@ Spring会自动搜索message.properties、message\_zh\_CN.properties等国际化
 ####参考文档
 
 [Spring官方在线文档库](http://docs.spring.io/spring/docs/)
+[Spring MVC 教程](http://elf8848.iteye.com/blog/875830/)
