@@ -82,7 +82,7 @@ JDK7开始，终于可以用二进制来表示整数(byte,short,int和long)。�
 List<String> list = new ArrayList<>();
 {% endhighlight %}
 
-####5.对集合类的语言支持 
+####5.对集合类的语言支持 **实际发布后发现并不支持，系误传**
 
 包含对创建集合类的第一类语言支持。这意味着集合类的创建可以像Ruby和Python那样了。如：
 
