@@ -71,7 +71,8 @@ CloseableHttpClient client = HttpClients.createDefault();
 			}
 {% endhighlight %}
 
-但通过Angular这种前端请求的方式，却不奏效，除非对请求报文人为插入`boundary`。但我们都知道JS处理文件效率较低，这种工作还是交给后台比较合适。
+但通过Angular这种前端请求的方式，却不奏效，除非对请求报文人为插入`boundary`，[手动插入boundary示例](http://woxiangbo.iteye.com/blog/1751740)。是不是巨麻烦？
+而且我们都知道JS处理文件效率较低，这种工作还是交给后台比较合适。
 
 ####解决方案
 
