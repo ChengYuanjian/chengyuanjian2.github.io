@@ -48,27 +48,27 @@ Content-Type: application/x-msdownload
 {% highlight java %}
 CloseableHttpClient client = HttpClients.createDefault();
 
-			HttpPut request = new HttpPut(url);
+HttpPut request = new HttpPut(url);
 
-			request.setHeader("Authorization", authorization);
-			request.setHeader("Content-Type", "multipart/form-data;boundary="+boundary);//设置1
+request.setHeader("Authorization", authorization);
+request.setHeader("Content-Type", "multipart/form-data;boundary="+boundary);//设置1
 
-			MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-			builder.setBoundary(boundary);//设置2
-			
-			File file = new File("/Users/CYJ/Downloads/application.zip");
-			if (file.exists()) {
-				builder.addTextBody("resources", "[]");
-				builder.addBinaryBody("application", file);
-		
-				request.setEntity(builder.build());
-				
-				HttpResponse httpResponse = client.execute(request);
-				HttpEntity httpEntity = httpResponse.getEntity();
-				String content = EntityUtils.toString(httpEntity);
+MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+builder.setBoundary(boundary);//设置2
 
-				System.out.println(content);
-			}
+File file = new File("/Users/CYJ/Downloads/application.zip");
+if (file.exists()) {
+	builder.addTextBody("resources", "[]");
+	builder.addBinaryBody("application", file);
+
+	request.setEntity(builder.build());
+	
+	HttpResponse httpResponse = client.execute(request);
+	HttpEntity httpEntity = httpResponse.getEntity();
+	String content = EntityUtils.toString(httpEntity);
+
+	System.out.println(content);
+}
 {% endhighlight %}
 
 但通过Angular这种前端请求的方式，却不奏效，除非对请求报文人为插入`boundary`，[手动插入boundary示例](http://woxiangbo.iteye.com/blog/1751740)。是不是巨麻烦？
@@ -79,10 +79,10 @@ CloseableHttpClient client = HttpClients.createDefault();
 说了那么多，应该怎么做呢？其实很简单：
 
 {% highlight js %}
-    var config = {
-        transformRequest: angular.identity,
-        headers: {'Content-Type': undefined}
-      };
+var config = {
+	transformRequest: angular.identity,
+	headers: {'Content-Type': undefined}
+};
 {% endhighlight %}
 
 首先指定`content-type`为`undefined`，用来覆盖angular默认方式。其次，设置`transformRequest`为`angular.identity`。因为angular默认的`transformRequest`
