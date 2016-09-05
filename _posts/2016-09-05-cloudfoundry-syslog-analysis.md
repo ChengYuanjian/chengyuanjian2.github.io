@@ -23,7 +23,7 @@ Firehose是基于websocket的，用来收集事件数据，包括日志、http�
 firehose-to-syslog是官方提供用来把firehose获取的信息推向rsyslog的工具：[GitHub地址](https://github.com/cloudfoundry-community/firehose-to-syslog)
 
 
-<!--more-->
+<!-- more -->
 
 
 ###配置firehose-to-syslog###
