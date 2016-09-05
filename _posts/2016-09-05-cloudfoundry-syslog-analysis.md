@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  CloudFoundry日志分析————firehose＋rsyslog＋kafka＋storm
+title:  CloudFoundry日志分析——firehose＋rsyslog＋kafka＋storm
 description: 
 keywords: CloudFoundry,PaaS,kafka,storm
 category: CloudFoundry
@@ -147,6 +147,7 @@ __由于rsyslog在8.7.0以后的版本才支持kafka，所以在第一步选择�
 最好不要轻易修改全局的`rsyslog.conf`, 我们在`/etc/rsyslog.d`目录下新建一个`cyj.conf`文件，配置如下：
 
 ```bash
+
 module(load="imudp") 
 input(type="imudp" port="514")
 
@@ -167,6 +168,7 @@ module(load="omkafka")
 if $inputname == "imudp" or $inputname == "imtcp" then {
     action (type="omkafka" topic="my-replicated-topic" broker="localhost" partitions.auto="on" template="jtpl" confParam=["compression.codec=snappy", "socket.keepalive.enable=true"])
 }
+
 ```
 
 __模板格式：__`%property:fromChar:toChar:options%`
