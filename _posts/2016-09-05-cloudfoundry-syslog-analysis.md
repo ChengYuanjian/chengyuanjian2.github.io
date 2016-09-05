@@ -60,8 +60,9 @@ Kafka是一种高吞吐量的分布式发布订阅消息框架，最初由Linked
 
 以上便完成了单节点kafka的启动。
 
-__Kafka依赖JVM，如果未装JDK，则需执行下载：`wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz"
-`然后解压，配置环境变量（这里不赘述）方可正常运行。__
+__Kafka依赖JVM，如果未装JDK，则需执行下载：
+`wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz"`
+然后解压，配置环境变量（这里不赘述）方可正常运行。__
 
 ----
 
