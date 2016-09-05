@@ -9,8 +9,11 @@ tags: [CloudFoundry,PaaS]
 
 
 * 操作系统：服务端Ubuntu 14.04／客户端Mac OS X 10.11.6
+
 * JDK：JDK1.8.0
+
 * GO：GO1.7
+
 * 作者：程圆建
 
 ----
@@ -134,7 +137,7 @@ __由于rsyslog在8.7.0以后的版本才支持kafka，所以在第一步选择�
 默认rsyslog的配置文件是`/etc/rsyslog.conf` 和 `/etc/rsyslog.d`下的配置。
 最好不要轻易修改全局的`rsyslog.conf`, 我们在`/etc/rsyslog.d`目录下新建一个`cyj.conf`文件，配置如下：
 
-```
+```py
 module(load="imudp") 
 input(type="imudp" port="514")
 
