@@ -140,7 +140,6 @@ input(type="imudp" port="514")
 
 module(load="imptcp") 
 input(type="imptcp" port="514")
-#允许514端口接收使用UDP&TCP协议转发过来的日志
 
 $RepeatedMsgReduction off
 
@@ -149,10 +148,10 @@ $WorkDirectory /var/spool/rsyslog
 template(name="jtpl"
          type="string"
          string="{%msg:2:$:jsonf%,%app-name:::jsonf:app_name%,%procid:::jsonf:pid%,%hostname:::jsonf%,%programname:::jsonf:pname%,%syslogfacility-text:::jsonf:facility%,%syslogseverity-text:::jsonf:severity%,%timereported:::date-rfc3339,jsonf%,%timegenerated:::date-rfc3339,jsonf%}\n"
-        ) #配置报文模版
+        ) 
 
 module(load="omkafka")
-#引入kafka支持模块
+
 if $inputname == "imudp" or $inputname == "imtcp" then {
     action (type="omkafka" topic="my-replicated-topic" broker="localhost" partitions.auto="on" template="jtpl" confParam=["compression.codec=snappy", "socket.keepalive.enable=true"])
 }
