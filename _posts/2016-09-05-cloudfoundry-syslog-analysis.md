@@ -156,7 +156,7 @@ input(type="imptcp" port="514")
 
 template(name="jtpl"
          type="string"
-         string="{%msg:2:$:jsonf%,%app-name:::jsonf:app_name%,%procid:::jsonf:pid%,%hostname:::jsonf%,%programname:::jsonf:pname%,%syslogfacility-text:::jsonf:facility%,%syslogseverity-text:::jsonf:severity%,%timereported:::date-rfc3339,jsonf%,%timegenerated:::date-rfc3339,jsonf%}\n"
+         string="%hostname%<-+>%syslogtag%<-+>%msg%\n"
         ) 
 
 module(load="omkafka")
@@ -167,7 +167,7 @@ if $inputname == "imudp" or $inputname == "imtcp" then {
 
 ```
 
-__模板格式：__`%property:fromChar:toChar:options%`
+__完整模板格式：__`%property:fromChar:toChar:options%`
 从左至右依次表示属性、开始字符序号、结束字符序号、格式选项。
 
 输入`service rsyslog restart`重新启动rsyslog使得配置生效。
