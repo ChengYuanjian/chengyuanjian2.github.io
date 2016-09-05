@@ -11,8 +11,6 @@ tags: [CloudFoundry,PaaS]
 * 操作系统：服务端Ubuntu 14.04／客户端Mac OS X 10.11.6
 * JDK：JDK1.8.0
 * GO：GO1.7
-* 作者：程圆建
-
 ----
 
 #firehose-to-syslog#
