@@ -146,8 +146,7 @@ __由于rsyslog在8.7.0以后的版本才支持kafka，所以在第一步选择�
 默认rsyslog的配置文件是`/etc/rsyslog.conf` 和 `/etc/rsyslog.d`下的配置。
 最好不要轻易修改全局的`rsyslog.conf`, 我们在`/etc/rsyslog.d`目录下新建一个`cyj.conf`文件，配置如下：
 
-{% highlight bash %}
-
+```bash
 module(load="imudp") 
 input(type="imudp" port="514")
 
@@ -168,8 +167,7 @@ module(load="omkafka")
 if $inputname == "imudp" or $inputname == "imtcp" then {
     action (type="omkafka" topic="my-replicated-topic" broker="localhost" partitions.auto="on" template="jtpl" confParam=["compression.codec=snappy", "socket.keepalive.enable=true"])
 }
-
-{% endhighlight %}
+```
 
 __模板格式：__`%property:fromChar:toChar:options%`
 从左至右依次表示属性、开始字符序号、结束字符序号、格式选项。
