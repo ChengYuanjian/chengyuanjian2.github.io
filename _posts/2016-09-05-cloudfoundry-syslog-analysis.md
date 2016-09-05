@@ -22,7 +22,9 @@ Firehose是基于websocket的，用来收集事件数据，包括日志、http�
 
 firehose-to-syslog是官方提供用来把firehose获取的信息推向rsyslog的工具：[GitHub地址](https://github.com/cloudfoundry-community/firehose-to-syslog)
 
+
 <!--more-->
+
 
 ###配置firehose-to-syslog###
 
@@ -41,7 +43,9 @@ export GOPATH=/Users/CYJ/go
 * 下载工程：`go get github.com/cloudfoundry-community/firehose-to-syslog`
 * 进入目录：`cd $GOPATH/src/github.com/cloudfoundry-community/firehose-to-syslog`
 * 编译：`go build`，此时会生成一个可执行的命令：`firehose-to-syslog`，可以通过加`-o`选项制定其他名字
-* 执行命令进行推送：`./firehose-to-syslog --api-endpoint="https://api.truepaas.cn"  --syslog-server=192.168.199.236:514 --syslog-protocol="udp" --skip-ssl-validation --debug --doppler-endpoint="wss://doppler.truepaas.cn:4443" --user="admin" --password="admin" --events="HttpStartStop"`
+* 执行命令进行推送：
+
+```./firehose-to-syslog --api-endpoint="https://api.truepaas.cn"  --syslog-server=192.168.199.236:514 --syslog-protocol="udp" --skip-ssl-validation --debug --doppler-endpoint="wss://doppler.truepaas.cn:4443" --user="admin" --password="admin" --events="HttpStartStop"```
 
 ----
 
@@ -54,22 +58,28 @@ Kafka是一种高吞吐量的分布式发布订阅消息框架，最初由Linked
 1. [点击下载安装包](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.10.0.0/kafka_2.11-0.10.0.0.tgz)
 2. 解压：`tar -xzf kafka_2.11-0.10.0.0.tgz`
 3. 顺序执行以下命令启动：
+
  * `cd kafka_2.11-0.10.0.0`
  * `bin/zookeeper-server-start.sh config/zookeeper.properties`
  * `bin/kafka-server-start.sh config/server.properties`
 
 以上便完成了单节点kafka的启动。
 
-__Kafka依赖JVM，如果未装JDK，则需执行下载：
-`wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz"`
-然后解压，配置环境变量（这里不赘述）方可正常运行。__
+__Kafka依赖JVM，如果未装JDK，则需执行下载：__
+
+```wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz"```
+
+__然后解压，配置环境变量（这里不赘述）方可正常运行。__
 
 ----
 
 ###Kafaka示例（单节点）###
-1. 创建主题`topic`——cyj：`bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic cyj`
-2. 创建生产者`producer`：`bin/kafka-console-producer.sh --broker-list localhost:9092 --topic cyj`
-3. 另起终端，创建消费者`consumer`：`bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic cyj --from-beginning`
+1. 创建主题`topic`——cyj：
+`bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic cyj`
+2. 创建生产者`producer`：
+`bin/kafka-console-producer.sh --broker-list localhost:9092 --topic cyj`
+3. 另起终端，创建消费者`consumer`：
+`bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic cyj --from-beginning`
 4. 此时可以通过生产者发送消息，而消费者会自动接收消息，使用`Ctrl＋C`退出会话
 
 ###Kafaka示例（集群）###
@@ -83,7 +93,8 @@ broker.id=1 #broker的id，集群里必须唯一，一般从0开始
 listeners=PLAINTEXT://:9093 #主机端口配置
 log.dir=/tmp/kafka-logs-1 #日志路径
 ```
-3.分别启动两个broker：`bin/kafka-server-start.sh config/server.properties`
+3.分别启动两个broker：
+`bin/kafka-server-start.sh config/server.properties`
 `bin/kafka-server-start.sh config/server-1.properties`
 
 4.查看当前节点信息：`bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic`
@@ -94,7 +105,8 @@ log.dir=/tmp/kafka-logs-1 #日志路径
 * replicas：列出了所有的节点，不管节点是否在服务中
 * isr：是正在服务中的节点
 
-5.创建主题：`bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 2 --partitions 1 --topic my-replicated-topic`
+5.创建主题：
+`bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 2 --partitions 1 --topic my-replicated-topic`
 6.同上节2、3步创建生产者和消费者后，可以正常收发消息。当我们人为kill掉某个节点时：`ps | grep server-1.properties & kill -9 pid`，消息发送不会受任何影响，由此可见，集群生效。
 
 
