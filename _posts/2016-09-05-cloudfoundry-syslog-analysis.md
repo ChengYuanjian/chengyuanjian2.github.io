@@ -154,10 +154,6 @@ input(type="imudp" port="514")
 module(load="imptcp") 
 input(type="imptcp" port="514")
 
-$RepeatedMsgReduction off
-
-$WorkDirectory /var/spool/rsyslog
-
 template(name="jtpl"
          type="string"
          string="{%msg:2:$:jsonf%,%app-name:::jsonf:app_name%,%procid:::jsonf:pid%,%hostname:::jsonf%,%programname:::jsonf:pname%,%syslogfacility-text:::jsonf:facility%,%syslogseverity-text:::jsonf:severity%,%timereported:::date-rfc3339,jsonf%,%timegenerated:::date-rfc3339,jsonf%}\n"
