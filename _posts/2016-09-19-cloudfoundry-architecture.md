@@ -36,7 +36,7 @@ Router本身是无状态，可扩展。实际生产中，会部署多个Router�
 
 ####Authentication
 
-包含两个组件，一个是Login Server，负责登录认证，一个是OAuth2 Server(UAA)，负责身份管理。
+包含两个组件，一个是Login Server，负责登录认证，一个是OAuth2 Server(UAA，User Account and Authentication)，负责身份管理。
 
 ####Cloud Controller
 
