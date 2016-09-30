@@ -15,7 +15,7 @@ tags: [CloudFoundry,PaaS]
 
 ----
 
-#firehose-to-syslog#
+##firehose-to-syslog##
 
 ###什么是firehose-to-syslog###
 Firehose是基于websocket的，用来收集事件数据，包括日志、http事件、应用和容器的度量数据等（注意Cloud Foundry系统组件本身的日志是不被包含的）。
@@ -49,7 +49,7 @@ export GOPATH=/Users/CYJ/go
 
 ----
 
-#Kafka#
+##Kafka##
 
 ###什么是Kafka###
 Kafka是一种高吞吐量的分布式发布订阅消息框架，最初由LinkedIn公司开发，之后成为Apache项目的一部分。
@@ -114,7 +114,7 @@ log.dir=/tmp/kafka-logs-1 #日志路径
 
 ----
 
-#Rsyslog#
+##Rsyslog##
 
 ###什么是Rsyslog###
 Rsyslog是一个自由软件，目标是提供一个更可靠的系统日志守护进程和配置，可以看作增强版的syslog。
@@ -185,7 +185,7 @@ __完整模板格式：__`%property:fromChar:toChar:options%`
 
 ----
 
-#Storm整合Kafka#
+##Storm整合Kafka##
 
 Storm提供了Kafka的官方支持，使用Java编写：[GitHub地址]
 (https://github.com/apache/storm/tree/master/external)
