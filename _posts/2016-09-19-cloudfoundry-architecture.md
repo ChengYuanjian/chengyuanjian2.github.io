@@ -34,7 +34,7 @@ Router在Cloud Foundry中是对所有进来的请求进行路由。进入Router�
 
 Router本身是无状态，可扩展。实际生产中，会部署多个Router做集群，通过nginx、DNS等方式来做负载均衡。
 
-####Authentication
+#### Authentication
 
 包含两个组件，一个是Login Server，负责登录认证，一个是OAuth2 Server(UAA，User Account and Authentication)，负责身份管理。
 
