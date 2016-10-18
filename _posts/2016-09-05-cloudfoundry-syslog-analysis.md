@@ -15,9 +15,10 @@ tags: [CloudFoundry,PaaS]
 
 ----
 
-##firehose-to-syslog##
+## firehose-to-syslog
 
-###什么是firehose-to-syslog###
+### 什么是firehose-to-syslog 
+
 Firehose是基于websocket的，用来收集事件数据，包括日志、http事件、应用和容器的度量数据等（注意Cloud Foundry系统组件本身的日志是不被包含的）。
 
 firehose-to-syslog是官方提供用来把firehose获取的信息推向rsyslog的工具：[GitHub地址](https://github.com/cloudfoundry-community/firehose-to-syslog)
@@ -26,7 +27,7 @@ firehose-to-syslog是官方提供用来把firehose获取的信息推向rsyslog�
 <!-- more -->
 
 
-###配置firehose-to-syslog###
+### 配置firehose-to-syslog
 
 firehose-to-syslog使用go语言编写，所以安装go语言运行环境并配置环境变量。
 
@@ -45,16 +46,19 @@ export GOPATH=/Users/CYJ/go
 * 编译：`go build`，此时会生成一个可执行的命令：`firehose-to-syslog`，可以通过加`-o`选项制定其他名字
 * 执行命令进行推送：
 
-```./firehose-to-syslog --api-endpoint="https://api.truepaas.cn"  --syslog-server=192.168.199.236:514 --syslog-protocol="udp" --skip-ssl-validation --debug --doppler-endpoint="wss://doppler.truepaas.cn:4443" --user="admin" --password="admin" --events="HttpStartStop"```
+```./firehose-to-syslog --api-endpoint="https://api.truepaas.cn"  --syslog-server=192.168.199.236:514 --syslog-protocol="udp" --skip-ssl-validation --debug --doppler-endpoint="wss://doppler.truepaas.cn:4443" --user="admin" --password="admin" --events="HttpStartStop"
+```
 
-----
+----------
 
-##Kafka##
+## Kafka
 
-###什么是Kafka###
+### 什么是Kafka
+
 Kafka是一种高吞吐量的分布式发布订阅消息框架，最初由LinkedIn公司开发，之后成为Apache项目的一部分。
 
-###安装Kafka###
+### 安装Kafka
+
 1. [点击下载安装包](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.10.0.0/kafka_2.11-0.10.0.0.tgz)
 2. 解压：`tar -xzf kafka_2.11-0.10.0.0.tgz`
 3. 顺序执行以下命令启动：
@@ -67,13 +71,15 @@ Kafka是一种高吞吐量的分布式发布订阅消息框架，最初由Linked
 
 __Kafka依赖JVM，如果未装JDK，则需执行下载：__
 
-```wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz"```
+```wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz"
+```
 
 __然后解压，配置环境变量（这里不赘述）方可正常运行。__
 
-----
+-------
 
-###Kafaka示例（单节点）###
+### Kafaka示例（单节点）
+
 1. 创建主题`topic`——cyj：
 `bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic cyj`
 2. 创建生产者`producer`：
@@ -82,7 +88,7 @@ __然后解压，配置环境变量（这里不赘述）方可正常运行。__
 `bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic cyj --from-beginning`
 4. 此时可以通过生产者发送消息，而消费者会自动接收消息，使用`Ctrl＋C`退出会话
 
-###Kafaka示例（集群）###
+### Kafaka示例（集群）
 以上是创建个单个broker，在实际场景中，我们可能需要多个borker（以两个节点为例）:
 
 1.复制一份配置文件：`cp config/server.properties config/server-1.properties`
@@ -112,14 +118,15 @@ log.dir=/tmp/kafka-logs-1 #日志路径
 
 [官方文档](http://kafka.apache.org/documentation.html#quickstart)
 
-----
+-------
 
-##Rsyslog##
+## Rsyslog
 
-###什么是Rsyslog###
+### 什么是Rsyslog
+
 Rsyslog是一个自由软件，目标是提供一个更可靠的系统日志守护进程和配置，可以看作增强版的syslog。
 
-###安装Rsyslog###
+### 安装Rsyslog
 
 1. 选择资源库：`add-apt-repository ppa:adiscon/v8-stable`
 2. 更新apt缓存：`apt-get update`
@@ -141,7 +148,7 @@ __由于rsyslog在8.7.0以后的版本才支持kafka，所以在第一步选择�
 
 ----
 
-###配置Rsyslog###
+### 配置Rsyslog
 
 默认rsyslog的配置文件是`/etc/rsyslog.conf` 和 `/etc/rsyslog.d`下的配置。
 最好不要轻易修改全局的`rsyslog.conf`, 我们在`/etc/rsyslog.d`目录下新建一个`cyj.conf`文件，配置如下：
@@ -185,7 +192,7 @@ __完整模板格式：__`%property:fromChar:toChar:options%`
 
 ----
 
-##Storm整合Kafka##
+## Storm整合Kafka
 
 Storm提供了Kafka的官方支持，使用Java编写：[GitHub地址]
 (https://github.com/apache/storm/tree/master/external)
